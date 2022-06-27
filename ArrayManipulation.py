@@ -23,17 +23,18 @@ def arrayManipulation(n, queries):
     #     for j in range(i[0], i[1]+1):
     #         arr[j] += i[2]
     # return max(arr)
-    # arr = [0] * (n + 1)
-    # for a, b, k in queries:
-    #     arr[a-1] += k
-    #     arr[b] -= k
-    # max_val = temp = 0
-    # for i in arr:
-    #     temp += i
-    #     print(temp)
-    #     if temp > max_val:
-    #         max_val = temp
-    # return max_val
+    arr = [0] * (n + 1)
+    for a, b, k in queries:
+        arr[a-1] += k
+        arr[b] -= k
+    max_val = temp = 0
+    for i in arr:
+        temp += i
+        # print(temp)
+        if temp > max_val:
+            max_val = temp
+    return max_val
+
     # arr = [0]*(n+2)
 
     # # perform the query operations
