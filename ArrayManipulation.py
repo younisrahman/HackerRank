@@ -18,11 +18,22 @@ import sys
 
 def arrayManipulation(n, queries):
     # Write your code here
+    # arr = [0] * (n + 1)
+    # for i in queries:
+    #     for j in range(i[0], i[1]+1):
+    #         arr[j] += i[2]
+    # return max(arr)
     arr = [0] * (n + 1)
-    for i in queries:
-        for j in range(i[0], i[1]+1):
-            arr[j] += i[2]
-    return max(arr)
+    for a, b, k in queries:
+        arr[a-1] += k
+        arr[b] -= k
+    max_val = temp = 0
+    for i in arr:
+        temp += i
+        print(temp)
+        if temp > max_val:
+            max_val = temp
+    return max_val
 
 
 first_multiple_input = input().rstrip().split()
