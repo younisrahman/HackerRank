@@ -18,8 +18,11 @@ import sys
 
 def arrayManipulation(n, queries):
     # Write your code here
-    arr = [[0] * (n)] * len(queries)
+    arr = [0] * (n + 1)
     for i in range(len(queries)):
+        for j in range(queries[i][0], queries[i][1]):
+            print(queries[i][j])
+        # arr[j] += queries[i][2]
     return arr
 
 
