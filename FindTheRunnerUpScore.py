@@ -1,16 +1,12 @@
 n = int(input())
 arr = map(int, input().split())
+arr = set(arr)
 arr = list(arr)
-runnerUp = arr[0]
-for i in range(n-1):
-    if arr[i] < arr[i+1]:
-        runnerUp = arr[i]
-    elif arr[i] > arr[i+1]:
-        runnerUp = arr[i+1]
-    # print(arr)
+arr.sort()
 
 
-print(runnerUp)
+print(arr[-2])
+print(arr)
 
 # 5
 # 6 4 5 6 6
