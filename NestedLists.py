@@ -1,24 +1,19 @@
-names = set()
-minimun = 0
-lowest = 0
-for i in range(int(input())):
-
+dic = {}
+s = list()
+for _ in range(int(input())):
     name = input()
     score = float(input())
-    if i == 0:
-        lowest = score
-        minimun = score
-    if score < lowest:
-        lowest = score
-
-    if score > lowest and score < minimun:
-        names = {name}
-        minimun = score
-    elif score == minimun:
-        names.add(name)
-
-names = sorted(names)
-for i in names:
+    if score in dic:
+        dic[score].append(name)
+    else:
+        dic[score] = [name]
+    if score not in s:
+        s.append(score)
+m = min(s)
+s.remove(m)
+m1 = min(s)
+dic[m1].sort()
+for i in dic[m1]:
     print(i)
 
 # 4
