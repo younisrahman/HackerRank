@@ -1,12 +1,12 @@
 
 def solve(s):
     name = s.split()
-    newName = ''
+    newName = s
     for i in name:
         # print(i.capitalize(), end=' ')
-        newName = newName + ' ' + i.capitalize()
+        newName = newName.replace(i, i.capitalize())
 
-    return newName[1:]
+    return newName
 
 
 s = input()
