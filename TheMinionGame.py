@@ -12,7 +12,7 @@ def minion_game(string):
         else:
             stuart += count
         count -= 1
-    print('Kevin {}'.format(kevin) if kevin >
+    print('Draw' if kevin == stuart else 'Kevin {}'.format(kevin) if kevin >
           stuart else 'Stuart {}'.format(stuart))
 
 
