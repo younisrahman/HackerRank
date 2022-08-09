@@ -19,6 +19,12 @@ vector<string> split(const string &);
 
 vector<int> findPoint(int px, int py, int qx, int qy)
 {
+    vector<int> v;
+    int p = 2 * qx - px;
+    int y = 2 * qy - py;
+    v.push_back(p);
+    v.push_back(y);
+    return v;
 }
 
 int main()
