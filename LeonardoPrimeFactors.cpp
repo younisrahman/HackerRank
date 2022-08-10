@@ -29,7 +29,7 @@ int primeFactors(long n)
                     89,
                     97};
     int len = sizeof(primes) / sizeof(primes[0]);
-    long long ans = 1;
+    long double ans = 1;
     int count = 0;
 
     if (n == 1)
@@ -39,14 +39,16 @@ int primeFactors(long n)
 
     for (int i = 0; i < len; i++)
     {
-        std::cout << ans << std::endl;
-        ans *= primes[i];
-        if (ans <= n)
+        if (primes[i] * ans <= n)
         {
+            ans *= primes[i];
             count++;
         }
         else
+        {
+            std::cout << ans << std::endl;
             break;
+        }
     }
     return count;
 }
