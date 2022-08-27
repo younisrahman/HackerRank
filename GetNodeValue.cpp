@@ -183,31 +183,38 @@ Node *mergeListsRecursion(Node *&head1, Node *&head2)
     }
     return result;
 }
+int getNodeValue(Node *llist, int positionFromTail)
+{
+    Node *temp = llist;
+    Node *temp2 = llist;
+
+    int count = 0;
+    while (temp != NULL)
+    {
+        count++;
+        temp = temp->next;
+    }
+    int position = count - positionFromTail;
+    int count2 = 1;
+    while (temp2 != NULL && count2 != position)
+    {
+        cout << temp2->data << endl;
+        temp2 = temp2->next;
+        count2++;
+    }
+    // return position;
+    return temp2->data;
+}
 
 int main()
 {
     Node *head = NULL;
-    insertInEnd(head, 1);
-    insertInEnd(head, 2);
+    insertInEnd(head, 4);
     insertInEnd(head, 3);
-    Node *head2 = NULL;
-    insertInEnd(head2, 3);
-    insertInEnd(head2, 4);
-    display(head);
-    display(head2);
-    Node *head3 = mergeLists(head, head2);
-    display(head3);
-    Node *head4 = mergeListsRecursion(head, head2);
-    display(head4);
-    // Variable is used to store value
-    // int a = 5;
-    // cout << a; // output is 5
-
-    // Pointer is used to store address of variable
-    int a = 5;
-    int *ab;
-    ab = &a;     //& is used get address of the variable
-    cout << *ab; // Output is address of variable
+    insertInEnd(head, 2);
+    insertInEnd(head, 1);
+    cout << getNodeValue(head, 2) << endl;
+    // display(head3);
 
     return 0;
 }
