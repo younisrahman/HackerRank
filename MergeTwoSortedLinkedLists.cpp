@@ -125,7 +125,7 @@ void search(Node *&head, int val)
     }
     cout << "Not found" << endl;
 }
-Node *mergeLists(Node *head1, Node *head2)
+Node *mergeLists(Node *&head1, Node *&head2)
 {
     Node *p1 = head1;
     Node *p2 = head2;
@@ -160,6 +160,30 @@ Node *mergeLists(Node *head1, Node *head2)
     return dummyNode->next;
 }
 
+Node *mergeListsRecursion(Node *&head1, Node *&head2)
+{
+    if (head1 == NULL)
+    {
+        return head2;
+    }
+    if (head2 == NULL)
+    {
+        return head1;
+    }
+    Node *result;
+    if (head1->data < head2->data)
+    {
+        result = head1;
+        result->next = mergeListsRecursion(head1->next, head2->next);
+    }
+    else
+    {
+        result = head1;
+        result->next = mergeListsRecursion(head1->next, head2);
+    }
+    return result;
+}
+
 int main()
 {
     Node *head = NULL;
@@ -173,6 +197,8 @@ int main()
     display(head2);
     Node *head3 = mergeLists(head, head2);
     display(head3);
+    Node *head4 = mergeListsRecursion(head, head2);
+    display(head4);
 
     return 0;
 }
