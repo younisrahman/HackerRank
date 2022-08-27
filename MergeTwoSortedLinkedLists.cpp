@@ -145,6 +145,18 @@ Node *mergeLists(Node *head1, Node *head2)
         }
         p3 = p3->next;
     }
+    while (p1 != NULL)
+    {
+        p3->next = p1;
+        p1 = p1->next;
+        p3 = p3->next;
+    }
+    while (p2 != NULL)
+    {
+        p3->next = p2;
+        p2 = p2->next;
+        p3 = p3->next;
+    }
     return dummyNode->next;
 }
 
