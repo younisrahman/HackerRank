@@ -56,13 +56,14 @@ Node *reverse(Node *llist)
     vector<int> val;
     while (temp != NULL)
     {
-        val.push_back(temp->data);
+        // val.push_back(temp->data);
+        insertInHead(newList, temp->data);
         temp = temp->next;
     }
-    int length = val.size();
-    for(int i=0;i<length;i++){
-        insertInHead(newList, val[i]);
-    }
+    // int length = val.size();
+    // for(int i=0;i<length;i++){
+    //     insertInHead(newList, val[i]);
+    // }
    
     return newList;
 }
